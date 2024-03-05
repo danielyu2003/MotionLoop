@@ -21,3 +21,5 @@ Todo
 Todo
 
 ## License
+
+> [MIT License](LICENSE)
