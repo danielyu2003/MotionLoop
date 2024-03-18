@@ -11,6 +11,9 @@
 		C38D6E612B96FB3E0031DC15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D6E602B96FB3E0031DC15 /* ContentView.swift */; };
 		C38D6E632B96FB400031DC15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38D6E622B96FB400031DC15 /* Assets.xcassets */; };
 		C38D6E662B96FB400031DC15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38D6E652B96FB400031DC15 /* Preview Assets.xcassets */; };
+		C38D6E6D2B970F360031DC15 /* Capabilities.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D6E6C2B970F360031DC15 /* Capabilities.plist */; };
+		C3F3970F2BA7F74200FB5AB9 /* MotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F3970E2BA7F74200FB5AB9 /* MotionModel.swift */; };
+		C3F397112BA8041600FB5AB9 /* MotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F397102BA8041500FB5AB9 /* MotionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		C38D6E602B96FB3E0031DC15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C38D6E622B96FB400031DC15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C38D6E652B96FB400031DC15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C38D6E6C2B970F360031DC15 /* Capabilities.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Capabilities.plist; sourceTree = "<group>"; };
+		C3F3970E2BA7F74200FB5AB9 /* MotionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionModel.swift; sourceTree = "<group>"; };
+		C3F397102BA8041500FB5AB9 /* MotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				C38D6E5E2B96FB3E0031DC15 /* MotionLoopApp.swift */,
+				C3F3970E2BA7F74200FB5AB9 /* MotionModel.swift */,
 				C38D6E602B96FB3E0031DC15 /* ContentView.swift */,
+				C3F397102BA8041500FB5AB9 /* MotionViewModel.swift */,
+				C38D6E6C2B970F360031DC15 /* Capabilities.plist */,
 				C38D6E622B96FB400031DC15 /* Assets.xcassets */,
 				C38D6E642B96FB400031DC15 /* Preview Content */,
 			);
@@ -127,6 +136,7 @@
 			files = (
 				C38D6E662B96FB400031DC15 /* Preview Assets.xcassets in Resources */,
 				C38D6E632B96FB400031DC15 /* Assets.xcassets in Resources */,
+				C38D6E6D2B970F360031DC15 /* Capabilities.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3F3970F2BA7F74200FB5AB9 /* MotionModel.swift in Sources */,
 				C38D6E612B96FB3E0031DC15 /* ContentView.swift in Sources */,
+				C3F397112BA8041600FB5AB9 /* MotionViewModel.swift in Sources */,
 				C38D6E5F2B96FB3E0031DC15 /* MotionLoopApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,8 +284,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MotionLoop/Preview Content\"";
+				DEVELOPMENT_TEAM = 233WQZR9BN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MotionLoop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -300,8 +315,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MotionLoop/Preview Content\"";
+				DEVELOPMENT_TEAM = 233WQZR9BN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MotionLoop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+	@Environment(Motion.self) var motion
+//	var viewModel = MotionViewModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+			Text(String(reflecting: motion.accelData))
+			Button("Start") {
+				motion.startDeviceMotion()
+			}
+			Button("Stop") {
+				motion.stopDeviceMotion()
+			}
         }
         .padding()
     }
