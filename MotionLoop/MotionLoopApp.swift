@@ -9,11 +9,9 @@ import SwiftUI
 
 @main 
 struct MotionLoopApp: App {
-	@State private var motion = Motion()
     var body: some Scene {
         WindowGroup {
             ContentView()
-				.environment(motion)
         }
     }
 }

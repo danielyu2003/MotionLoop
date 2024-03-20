@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-	@Environment(Motion.self) var motion
-//	var viewModel = MotionViewModel()
+	private var motion = Motion()
     var body: some View {
         VStack {
 			Text(String(reflecting: motion.accelData))
