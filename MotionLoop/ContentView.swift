@@ -8,16 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-	private var motion = Motion()
+	@Bindable private var motion = Motion()
     var body: some View {
         VStack {
 			Text(String(reflecting: motion.accelData))
-			Button("Start") {
-				motion.startDeviceMotion()
+			Spacer()
+			HStack {
+				Button("Start") {
+					motion.startDeviceMotion()
+				}
+				Spacer()
+				Button("Stop") {
+					motion.stopDeviceMotion()
+				}
 			}
-			Button("Stop") {
-				motion.stopDeviceMotion()
-			}
+			Spacer()
+			Slider(
+				value: $motion.threshold,
+				in: 0...1,
+				step: 0.01
+			)
+			Text(String(motion.threshold))
         }
         .padding()
     }
