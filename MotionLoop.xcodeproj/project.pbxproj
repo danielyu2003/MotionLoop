@@ -15,7 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C361D8952BAFB00C0024FC88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C38D6E5B2B96FB3E0031DC15 /* MotionLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38D6E5E2B96FB3E0031DC15 /* MotionLoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionLoopApp.swift; sourceTree = "<group>"; };
 		C38D6E602B96FB3E0031DC15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,7 +56,6 @@
 				C38D6E5E2B96FB3E0031DC15 /* MotionLoopApp.swift */,
 				C3F3970E2BA7F74200FB5AB9 /* MotionModel.swift */,
 				C38D6E602B96FB3E0031DC15 /* ContentView.swift */,
-				C361D8952BAFB00C0024FC88 /* Info.plist */,
 				C38D6E622B96FB400031DC15 /* Assets.xcassets */,
 				C38D6E642B96FB400031DC15 /* Preview Content */,
 			);
@@ -281,13 +279,16 @@
 				DEVELOPMENT_TEAM = 233WQZR9BN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotionLoop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotionLoop;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "accelerometer gyroscope magnetometer";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,13 +313,16 @@
 				DEVELOPMENT_TEAM = 233WQZR9BN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotionLoop/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MotionLoop;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "accelerometer gyroscope magnetometer";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

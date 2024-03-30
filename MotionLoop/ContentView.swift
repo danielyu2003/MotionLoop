@@ -15,6 +15,8 @@ struct ContentView: View {
 			Spacer()
 			Text(stringify(motion.accelData))
 			.font(.title)
+			.fixedSize()
+			.scaledToFit()
 			Spacer()
 			Group {
 				if playing {
@@ -33,38 +35,38 @@ struct ContentView: View {
 			.labelStyle(.iconOnly)
 			.font(.largeTitle)
 			Spacer()
-			HStack {
-				Text("X")
-				Slider(
-					value: $motion.thresholds.xThreshold,
-					in: 0...1,
-					step: 0.01
-				)
+			VStack {
+				ThresholdSlider(name: "X", threshold: $motion.thresholds.xThreshold)
+				ThresholdSlider(name: "Y", threshold: $motion.thresholds.yThreshold)
+				ThresholdSlider(name: "Z", threshold: $motion.thresholds.zThreshold)
 			}
-			Text(String(motion.thresholds.xThreshold))
-			HStack {
-				Text("Y")
-				Slider(
-					value: $motion.thresholds.yThreshold,
-					in: 0...1,
-					step: 0.01
-				)
-			}
-			Text(String(motion.thresholds.yThreshold))
-			HStack {
-				Text("Z")
-				Slider(
-					value: $motion.thresholds.zThreshold,
-					in: 0...1,
-					step: 0.01
-				)
-			}
-			Text(String(motion.thresholds.zThreshold))
         }
         .padding()
     }
 	private func stringify(_ data: (x: Double, y: Double, z: Double)?) -> String {
 		return String(reflecting: data)
+	}
+}
+
+struct ThresholdSlider: View {
+	let name: String
+	@Binding var threshold: Double
+	var body: some View {
+		HStack {
+			Text(name)
+			Slider(
+				value: $threshold,
+				in: 0...1,
+				step: 0.01
+			)
+		}
+		Text(String(threshold.truncate(places: 2)))
+	}
+}
+
+extension Double {
+	func truncate(places : Int)-> Double {
+		return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
 	}
 }
 
