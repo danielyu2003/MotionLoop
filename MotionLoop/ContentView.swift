@@ -9,31 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
 	@Bindable private var motion = Motion()
-	@State var playing = false
     var body: some View {
         VStack {
 			Spacer()
-			Text(stringify(motion.accelData))
-			.font(.title)
-			.fixedSize()
-			.scaledToFit()
+			AccelerationView(data: motion.accelData)
+				.font(.title)
+				.fixedSize()
+				.scaledToFit()
 			Spacer()
-			Group {
-				if playing {
-					Button("Stop", systemImage: "stop.circle") {
-						motion.stopDeviceMotion()
-						playing.toggle()
-					}
-				}
-				else {
-					Button("Start", systemImage: "play.circle") {
-						motion.startDeviceMotion()
-						playing.toggle()
-					}
-				}
-			}
-			.labelStyle(.iconOnly)
-			.font(.largeTitle)
+			PlayButton(motion: motion)
+				.font(.largeTitle)
+				.labelStyle(.iconOnly)
 			Spacer()
 			VStack {
 				ThresholdSlider(name: "X", threshold: $motion.thresholds.xThreshold)
@@ -43,8 +29,24 @@ struct ContentView: View {
         }
         .padding()
     }
-	private func stringify(_ data: (x: Double, y: Double, z: Double)?) -> String {
-		return String(reflecting: data)
+}
+
+struct PlayButton: View {
+	@State var playing = false
+	var motion: Motion
+	var body: some View {
+		if playing {
+			Button("Stop", systemImage: "stop.circle") {
+				motion.stopDeviceMotion()
+				playing.toggle()
+			}
+		}
+		else {
+			Button("Start", systemImage: "play.circle") {
+				motion.startDeviceMotion()
+				playing.toggle()
+			}
+		}
 	}
 }
 
@@ -64,8 +66,24 @@ struct ThresholdSlider: View {
 	}
 }
 
+struct AccelerationView: View {
+	var data: (x: Double, y: Double, z: Double)?
+	var body: some View {
+		if let data {
+			VStack {
+				Text(String(data.x.truncate(places: 2)))
+				Text(String(data.y.truncate(places: 2)))
+				Text(String(data.z.truncate(places: 2)))
+			}
+		}
+		else {
+			Text("Accelerometer not active")
+		}
+	}
+}
+
 extension Double {
-	func truncate(places : Int)-> Double {
+	func truncate(places: Int) -> Double {
 		return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
 	}
 }

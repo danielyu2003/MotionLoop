@@ -29,20 +29,22 @@ import CoreMotion
 	func stopDeviceMotion() {
 		motionManager.stopDeviceMotionUpdates()
 		accelData = nil
-		saveToFile()
+		createAndShareFile()
 	}
-	private func saveToFile() {
-		let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-		let fileURL = URL(filePath: "myfile", relativeTo: documentsURL).appendingPathComponent("txt")
-		let myString = "Saving data with FileManager is easy!"
-		let data = myString.data(using: .utf8)!
-		do {
-			try data.write(to: fileURL)
-			print("File saved: \(fileURL.absoluteURL)")
-		} catch {
-			print(error.localizedDescription)
+	private func createAndShareFile() {
+		let fileName = "example.txt"
+		if let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(fileName) {
+			let content = "Hello, world!"
+			do {
+				try content.write(to: fileURL, atomically: true, encoding: .utf8)
+				let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+				UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+			} catch {
+				print("Error writing to file: \(error)")
+			}
 		}
 	}
+	
 	private func timer() -> Timer {
 		return Timer(fire: Date(), interval: (1/6), repeats: true) { timer in
 			if !self.status.active { timer.invalidate() }
@@ -55,10 +57,7 @@ import CoreMotion
 		}
 	}
 	private func handleAccelData(_ x: Double, _ y: Double, _ z: Double) {
-		// Use motion data below
-		// include frame number and timestamp?
 		self.accelData = (x, y, z)
-		// DEBUG
 		feedbackThreshold(val: x, thresholdVal: self.thresholds.xThreshold)
 		feedbackThreshold(val: y, thresholdVal: self.thresholds.yThreshold)
 		feedbackThreshold(val: z, thresholdVal: self.thresholds.zThreshold)
