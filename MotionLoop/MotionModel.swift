@@ -18,6 +18,8 @@ import CoreMotion
 	)}
 	private(set) var accelData: (x: Double, y: Double, z: Double)? = nil
 	var thresholds: (xThreshold: Double, yThreshold: Double, zThreshold: Double) = (0.0,0.0,0.0)
+	private var accelLog: [(x: Double, y: Double, z: Double, timestamp: TimeInterval)] = []
+	private var trialNumber: Int = 0
 	func startDeviceMotion() {
 		if status.available && !status.active {
 			motionManager.deviceMotionUpdateInterval = 1/6
@@ -30,13 +32,27 @@ import CoreMotion
 		motionManager.stopDeviceMotionUpdates()
 		accelData = nil
 		createAndShareFile()
+		accelLog.removeAll()
+		trialNumber += 1
 	}
 	private func createAndShareFile() {
-		let fileName = "example.txt"
+		if accelLog.isEmpty { return }
+		let fileName = "trial\(trialNumber).csv"
+		
 		if let fileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(fileName) {
-			let content = "Hello, world!"
+			
+			var content = "x,y,z,timestamp\n"
+			for accelEntry in accelLog {
+				let x = accelEntry.x
+				let y = accelEntry.y
+				let z = accelEntry.z
+				let timestamp = accelEntry.timestamp
+				content.append("\(x),\(y),\(z),\(timestamp)\n")
+			}
+			
 			do {
 				try content.write(to: fileURL, atomically: true, encoding: .utf8)
+				// Sharing
 				let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
 				UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
 			} catch {
@@ -44,19 +60,20 @@ import CoreMotion
 			}
 		}
 	}
-	
 	private func timer() -> Timer {
 		return Timer(fire: Date(), interval: (1/6), repeats: true) { timer in
 			if !self.status.active { timer.invalidate() }
 			if let data = self.motionManager.deviceMotion {
-				let x = data.userAcceleration.x
-				let y = data.userAcceleration.y
-				let z = data.userAcceleration.z
-				self.handleAccelData(x, y, z)
+				let x = data.userAcceleration.x.truncate(places: 3)
+				let y = data.userAcceleration.y.truncate(places: 3)
+				let z = data.userAcceleration.z.truncate(places: 3)
+				let timestamp = data.timestamp
+				self.accelLog.append((x, y, z, timestamp))
+				self.handleData(x, y, z)
 			}
 		}
 	}
-	private func handleAccelData(_ x: Double, _ y: Double, _ z: Double) {
+	private func handleData(_ x: Double, _ y: Double, _ z: Double) {
 		self.accelData = (x, y, z)
 		feedbackThreshold(val: x, thresholdVal: self.thresholds.xThreshold)
 		feedbackThreshold(val: y, thresholdVal: self.thresholds.yThreshold)

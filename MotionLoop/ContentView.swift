@@ -71,9 +71,9 @@ struct AccelerationView: View {
 	var body: some View {
 		if let data {
 			VStack {
-				Text(String(data.x.truncate(places: 2)))
-				Text(String(data.y.truncate(places: 2)))
-				Text(String(data.z.truncate(places: 2)))
+				Text("x: \(data.x)")
+				Text("y: \(data.y)")
+				Text("z: \(data.z)")
 			}
 		}
 		else {
