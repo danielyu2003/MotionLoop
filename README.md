@@ -1,8 +1,5 @@
 # MotionLoop
 
-[Installation](#Installation) | [Usage](#Usage) | [Contributing](#Contributing) | [Support](#Support) | [License](#License)
-
-\
 Functionalities include:
 - Recording accelerometer data
 - Configuring haptic feedback
