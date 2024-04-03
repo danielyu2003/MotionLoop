@@ -1,5 +1,4 @@
 # MotionLoop
-> An iOS app for conducting research involving human motion. Currently under development.
 
 [Installation](#Installation) | [Usage](#Usage) | [Contributing](#Contributing) | [Support](#Support) | [License](#License)
 
