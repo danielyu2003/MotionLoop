@@ -1,6 +1,6 @@
 # MotionLoop
 
-> iOS app for collecting motion data with multimodal feedback
+> An iOS app that facilitates research involving human motion. Currently in beta.
 
 [Installation](#Installation) | [Usage](#Usage) | [Contributing](#Contributing) | [Support](#Support) | [License](#License)
 
