@@ -1,24 +1,28 @@
 # MotionLoop
 
-> iOS app for collecting motion data with multimodal feedback
+Functionalities include:
+- Recording accelerometer data
+- Configuring haptic feedback
+- Sharing latest recording
 
-[Installation](#Installation) | [Usage](#Usage) | [Contributing](#Contributing) | [Support](#Support) | [License](#License)
+\
+Planned functionalities include:
+- Multimodal feedback
+- Configurations for additional sensors
+- Ability to see previous recordings within the app
+- Improved UI
 
 ## Installation
 
-Todo
+Currently not available through the App Store. The app can be built manually with a local installation of XCode.
 
 ## Usage
 
-Todo
+WIP
 
 ## Contributing
 
-Todo
-
-## Support
-
-Todo
+We welcome constructive feedback from anyone! Please report any bugs you find through an issue. If you'd like to add a relevant feature or suggestion that is currently missing, feel free to open a pull request.
 
 ## License
 
