@@ -26,6 +26,7 @@ struct ContentView: View {
 				ThresholdSlider(name: "Y", threshold: $motion.thresholds.yThreshold)
 				ThresholdSlider(name: "Z", threshold: $motion.thresholds.zThreshold)
 			}
+			FeedbackToggles(enabled: $motion.enabled)
         }
         .padding()
     }
@@ -78,6 +79,20 @@ struct AccelerationView: View {
 		}
 		else {
 			Text("Accelerometer not active")
+		}
+	}
+}
+
+struct FeedbackToggles: View {
+	@Binding var enabled: (haptics: Bool, auditory: Bool)
+	var body: some View {
+		HStack {
+			Toggle(isOn: $enabled.haptics) {
+				Text("Haptics")
+			}
+			Toggle(isOn: $enabled.auditory) {
+				Text("Sounds")
+			}
 		}
 	}
 }

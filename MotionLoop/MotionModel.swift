@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import CoreMotion
+import AVFoundation
 
 @Observable class Motion {
 	private let motionManager = CMMotionManager()
@@ -18,8 +19,11 @@ import CoreMotion
 	)}
 	private(set) var accelData: (x: Double, y: Double, z: Double)? = nil
 	var thresholds: (xThreshold: Double, yThreshold: Double, zThreshold: Double) = (0.0,0.0,0.0)
+	var enabled: (haptics: Bool, auditory: Bool) = (false, false)
 	private var accelLog: [(x: Double, y: Double, z: Double, timestamp: TimeInterval)] = []
 	private var trialNumber: Int = 0
+	private static let url = URL(fileURLWithPath: "/System/Library/Audio/UISounds/sms-received5.caf")
+	private let audioPlayer = try! AVAudioPlayer(contentsOf: url)
 	func startDeviceMotion() {
 		if status.available && !status.active {
 			motionManager.deviceMotionUpdateInterval = 1/6
@@ -81,7 +85,8 @@ import CoreMotion
 	}
 	private func feedbackThreshold(val: Double, thresholdVal: Double) {
 		if abs(val) > thresholdVal && thresholdVal != 0.0 {
-			UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+			if enabled.haptics { UIImpactFeedbackGenerator(style: .heavy).impactOccurred() }
+			if enabled.auditory { audioPlayer.play() }
 		}
 	}
 }
