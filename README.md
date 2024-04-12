@@ -2,15 +2,14 @@
 
 Functionalities include:
 - Recording accelerometer data
-- Configuring haptic feedback
-- Sharing latest recording
+- Configuring haptic and auditory feedback
+- Sharing and saving recordings to the native Files app
 
 \
 Planned functionalities include:
-- Multimodal feedback
-- Configurations for additional sensors
-- Ability to see previous recordings within the app
 - Improved UI
+- Configurations for additional sensors
+- Ability to access recordings from within the app
 
 ## Installation
 
