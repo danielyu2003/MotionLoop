@@ -35,7 +35,7 @@ import AVFoundation
 	private static let url = URL(fileURLWithPath: "/System/Library/Audio/UISounds/sms-received5.caf")
 	private let audioPlayer = try! AVAudioPlayer(contentsOf: url)
 	func startDeviceMotion() {
-		if status.available && !status.active {
+		if status.available {
 			motionManager.deviceMotionUpdateInterval = 1/6
 			motionManager.showsDeviceMovementDisplay = true
 			motionManager.startDeviceMotionUpdates(using: .xMagneticNorthZVertical)
